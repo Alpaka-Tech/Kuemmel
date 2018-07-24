@@ -1,0 +1,23 @@
+order:
+  1: "base"
+  2: "docker_cfgs"
+  3: "docker"
+
+# Install base packages needed for other stages later on
+base:
+  type: install
+  provider: apt
+  packages: "git-core"
+
+# Docker configs
+docker_cfgs:
+  type: download
+  provider: git
+  from: https://git.your-server.com/server/docker-configs.git
+  to: /tmp/configs
+
+# Install docker and compose
+docker:
+  type: install
+  provider: apt
+  packages: "docker docker-compose"
