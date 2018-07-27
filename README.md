@@ -2,6 +2,19 @@
 
 Setup your device with this simple script and a single config file.
 
+- [Kuemmel](#kuemmel)
+  * [How to](#how-to)
+    + [Config file](#config-file)
+    + [Let there be order](#let-there-be-order)
+    + [Stages](#stages)
+      - [Install stage](#install-stage)
+      - [Download stage](#download-stage)
+    + [Providers](#providers)
+      - [Default](#default)
+      - [Custom](#custom)
+    + [Running the setup](#running-the-setup)
+  * [Run on a server](#run-on-a-server)
+
 ## How to
 
 ### Config file
@@ -53,8 +66,8 @@ This stage type always requires a `from` and a `to` key.
 docker_cfgs:
   type: download
   provider: git
-  from: https://git.your-server.com/server/docker-configs.git
-  to: /tmp/configs
+  from: https://git.i-love-alpa.ca/server/docker-configs.git
+  to: /docker/configs
 ```
 
 ### Providers
@@ -95,7 +108,7 @@ Run the script as described in [Running the setup](#running-the-setup) where `co
 Example:
 
 ```bash
-git clone https://github.com/christophschlosser/Kuemmel.git # Do this on your local machine
+git clone https://github.com/Alpaka-tech/Kuemmel.git # Do this on your local machine
 cd Kuemmel
 vim config.cyml # Create your config
 tar zcf - printers scripts/* setup.sh config.cyml | ssh your-server 'cat - > cfg.tar.gz' # Transfer through SSH using a tar archive
@@ -104,4 +117,4 @@ tar xzf cfg.tar.gz # This will extract the required files
 ./setup.sh config.cyml # Run the config
 ```
 
-Ofcourse there are many other ways to achieve the same thing but this can be done in less than 10 steps.
+Of course there are many other ways to achieve the same thing but this can be done in less than 10 steps.
